@@ -1,0 +1,37 @@
+/**
+ *  jQuery-Sidebar
+ *  Version 1.0
+ *
+ *  Written By Gavin
+ */
+.jqsb-container{
+    position: relative;
+    z-index: 1;
+}
+.jqsb-sidebar{
+    height: 100%;
+    width: auto;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    z-index: 0;
+    /*display: none;*/
+    background-color: #333333;
+}
+.jqsb-left{
+    left: 0;
+}
+.jqsb-right{
+    right: 0;
+}
+
+.jqsb-left-sm{
+
+}
+.jqsb-left-bg{
+    display: none;
+}
+
+.jqsb-container,.jqsb-sidebar{
+
+}
