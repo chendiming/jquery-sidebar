@@ -33,5 +33,9 @@
 }
 
 .jqsb-container,.jqsb-sidebar{
+    -webkit-transition-property: margin,width,display;
+    -webkit-transition-duration: .4s;
+    -webkit-transition-delay: .2s;
+    -webkit-transition-timing-function: ease-in;
 
 }
