@@ -28,6 +28,12 @@
         if ($('.jqsb-container').length) {
             var $container = $('.jqsb-container');
         }
+        if ($('.jqsb-left-sm').length) {
+            var $left_sm = $('.jqsb-left-sm');
+        }
+        if ($('.jqsb-left-bg').length) {
+            var $left_bg = $('.jqsb-left-bg');
+        }
 
         // 初始化插件
         function init() {
@@ -83,16 +89,35 @@
 
         // 打开
         function open(side) {
-            //$('.jqsb-left-sm').show();
-            $('.jqsb-left-bg').show();
-            $container.css('margin-left', $left.css('width'));
+            //$left_sm.css({'opacity': 0}).hide();
+            //$left_bg.css({'opacity': 1}).show();
+            $left_sm.css({'opacity': 0});
+            $left_bg.css({'opacity': 1});
+
+
+            $container.css(
+                {'margin-left': $left.css('width')}
+            );
+
+            //$left_sm
+
+
+            //$left_bg
+
+
             leftActive = true;
         }
 
         // 关闭
         function close() {
-            $('.jqsb-left-bg').hide();
+            $left_bg.css({'opacity': 0});
+            $left_sm.css({'opacity': 1});
+            //$left_bg.css({'opacity': 0}).hide();
+            //$left_sm.css({'opacity': 1}).show();
+
             $container.css('margin-left', $left.css('width'));
+
+
             leftActive = false;
         }
 

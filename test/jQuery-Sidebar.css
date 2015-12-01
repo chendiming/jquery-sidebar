@@ -33,9 +33,15 @@
 }
 
 .jqsb-container,.jqsb-sidebar{
-    -webkit-transition-property: margin,width,display;
+    opacity: 1;
+    -webkit-transition-property: margin;
     -webkit-transition-duration: .4s;
     -webkit-transition-delay: .2s;
     -webkit-transition-timing-function: ease-in;
-
+}
+.jqsb-left-sm{
+    opacity: 1;
+}
+.jqsb-left-bg{
+    opacity: 0;
 }
