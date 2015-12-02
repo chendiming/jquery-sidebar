@@ -34,7 +34,7 @@
         if ($('.jqsb-left-bg').length) {
             var $left_bg = $('.jqsb-left-bg');
         }
-
+		
         // 初始化插件
         function init() {
             if ($left && $container) $container.css('margin-left', $left.css('width'));
@@ -140,6 +140,6 @@
         }
 
     };
-
+	
     $.jqSidebar();
 })(jQuery);
