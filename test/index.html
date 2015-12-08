@@ -78,14 +78,15 @@
     <script>
         $(function(){
 			var jqsb = new $.jqSidebar({
-				leftShow:'jqsb-left-sm'
-//				autoClose:false
+				leftShow:'jqsb-left-sm',
+				autoClose:false
 			});
 			
 			
 			$('#bs-toggle').on('click',function(event){
-				jqsb.toggle('left');
+//				jqsb.toggle('left');
 //				jqsb.close();
+				jqsb.open();
 			});
 			
 			
