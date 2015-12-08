@@ -10,12 +10,14 @@
 
 	$.jqSidebar = function(options) {
 		var setting = $.extend({
-			leftActive: false,
-			rightActive: false,
-			autoClose: true,
-			leftShow: 'jqsb-left-bg' // 默认显示的元素
+			leftActive: false,//左侧是否为默认激活状态
+			rightActive: false,//右侧是否为默认激活状态
+			autoClose: true, //点击container 是否自动关闭两侧导航栏
+			leftShow: 'jqsb-left-bg' // 左侧导航栏为左右交替变换时默认显示的元素
 		}, options);
-
+		
+		var default_autoClose = setting.autoClose; // 默认是否自动关闭两侧导航栏  阻止冒泡
+		
 		// 初始化的窗口大小
 		var windowWidth = $(window).width();
 
@@ -70,7 +72,6 @@
 
 		// 样式变化
 		function css() {
-			//$left
 		}
 
 		// 窗口大小改变时
@@ -106,11 +107,13 @@
 		});
 
 		// 点击jqsb-container的内容 关闭两侧侧边栏
-		//$container.on('click',function(event){
-		//    if(setting.autoClose && ($left || $right)){
-		//
-		//    }
-		//});
+		$container.on('click',function(event){
+//		    default_autoClose
+		    if(setting.autoClose && ($left || $right)){
+				eventHandler(event, $(this));
+				close();
+		    }
+		});
 
 		// 打开
 		function open(side) {
@@ -167,5 +170,11 @@
 			}
 		}
 
+		this.toggle = function(side){
+//			setting.autoClose = false;
+			toggle(side);
+		};
+		this.close = close;
+		this.open = open;
 	};
 })(jQuery);

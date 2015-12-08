@@ -14,6 +14,7 @@ html,
 body,
 .jqsb-container,
 .jqsb-sidebar {
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	-webkit-box-sizing: border-box;
@@ -28,8 +29,6 @@ body,
 }
 
 .jqsb-sidebar {
-	height: 100%;
-	width: auto;
 	overflow-y: auto;
 	position: fixed;
 	top: 0;
