@@ -98,18 +98,14 @@
 		});
 
 		// 动画
-		function animate(type,object,amount) {
+		function animate(type,object,amount,callback) {
 			// 动画类型是大小切换的
 			if(type === 'switchMode'){
-				object[0].fadeOut(200, function() {
-					$container.animate({
-						marginLeft: amount
-					}, 300, function() {});
+				object[0].stop().fadeOut(200, function() {
+					$container.stop().animate({marginLeft: amount}, 300);
 	
-					$left.animate({
-						width: amount
-					}, 300, function() {
-						object[1].fadeIn(200, function() {});
+					$left.stop().animate({width: amount}, 300, function() {
+						object[1].stop().fadeIn(200, function() {callback();});
 					});
 				});
 			}
@@ -147,18 +143,20 @@
 		// 打开
 		function open(side) {
 			if(side === 'left' && leftSmActive){
-				animate('switchMode',[$left_sm,$left_bg],left_bg_width);
-				leftBgActive = true;
-				leftSmActive = false;
+				animate('switchMode',[$left_sm,$left_bg],left_bg_width,function(){
+					leftBgActive = true;
+					leftSmActive = false;
+				});
 			}
 		}
 
 		// 关闭
 		function close(side) {
 			if(side === 'left' && leftBgActive){
-				animate('switchMode',[$left_bg,$left_sm],left_sm_width);
-				leftBgActive = false;
-				leftSmActive = true;
+				animate('switchMode',[$left_bg,$left_sm],left_sm_width,function(){
+					leftBgActive = false;
+					leftSmActive = true;
+				});
 			}
 		}
 
