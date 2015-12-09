@@ -71,6 +71,10 @@
         <div class="jqsb-left-sm"><p class="text-warning">小Width</p></div>
         <div class="jqsb-left-bg"><p class="text-warning">这里必须是大的Width</p></div>
     </div>
+    
+    <!--<div class="jqsb-sidebar ">
+    	
+    </div>-->
 
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -78,15 +82,16 @@
     <script>
         $(function(){
 			var jqsb = new $.jqSidebar({
-				leftShow:'jqsb-left-sm',
+//				leftShow:'jqsb-left-sm',
 				autoClose:false
 			});
 			
 			
 			$('#bs-toggle').on('click',function(event){
+				//禁止冒泡
 //				jqsb.toggle('left');
 //				jqsb.close();
-				jqsb.open();
+				jqsb.open('left');
 			});
 			
 			

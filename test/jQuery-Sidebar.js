@@ -13,7 +13,8 @@
 			leftActive: false,//左侧是否为默认激活状态
 			rightActive: false,//右侧是否为默认激活状态
 			autoClose: true, //点击container 是否自动关闭两侧导航栏
-			leftShow: 'jqsb-left-bg' // 左侧导航栏为左右交替变换时默认显示的元素
+			leftShow: 'jqsb-left-bg', // 左侧导航栏为左右交替变换时默认显示的元素
+			rightShow: 'jqsb-right-bg'
 		}, options);
 		
 		// 初始化的窗口大小
@@ -24,25 +25,42 @@
 		var rightActive = false;
 		var leftBgActive = false;
 		var leftSmActive = false;
+		var rightBgActive = false;
+		var rightSmActive = false;
 
-		// 获取左右两侧的侧边栏
+		// 获取左侧边栏
 		if ($('.jqsb-left').length) {
 			var $left = $('.jqsb-left');
 		}
-		if ($('.jqsb-right').length) {
-			var $right = $('.jqsb-right');
-		}
-		if ($('.jqsb-container').length) {
-			var $container = $('.jqsb-container');
-		}
+		// 如果左侧边栏是大小切换方式的 获取小的块
 		if ($('.jqsb-left-sm').length) {
 			var $left_sm = $('.jqsb-left-sm');
 			var left_sm_width = $left_sm.width();
 		}
+		// 如果左侧边栏是大小切换方式的 获取大的块
 		if ($('.jqsb-left-bg').length) {
 			var $left_bg = $('.jqsb-left-bg');
 			var left_bg_width = $left_bg.width();
 		}
+		// 获取右侧边栏
+		if ($('.jqsb-right').length) {
+			var $right = $('.jqsb-right');
+		}
+		// 如果右侧边栏是大小切换方式的 获取小的块
+		if ($('.jqsb-right-sm').length) {
+			var $right_sm = $('.jqsb-right-sm');
+			var right_sm_width = $right_sm.width();
+		}
+		// 如果右侧边栏是大小切换方式的 获取大的块
+		if ($('.jqsb-right-bg').length) {
+			var $right_bg = $('.jqsb-right-bg');
+			var right_bg_width = $right_bg.width();
+		}
+		// 获取中间内容的容器
+		if ($('.jqsb-container').length) {
+			var $container = $('.jqsb-container');
+		}
+		
 
 		// 初始化插件
 		function init() {
@@ -70,6 +88,7 @@
 
 		// 样式变化
 		function css() {
+			
 		}
 
 		// 窗口大小改变时
@@ -79,8 +98,21 @@
 		});
 
 		// 动画
-		function animate() {
-
+		function animate(type,object,amount) {
+			// 动画类型是大小切换的
+			if(type === 'switchMode'){
+				object[0].fadeOut(200, function() {
+					$container.animate({
+						marginLeft: amount
+					}, 300, function() {});
+	
+					$left.animate({
+						width: amount
+					}, 300, function() {
+						object[1].fadeIn(200, function() {});
+					});
+				});
+			}
 		}
 
 		// ---------
@@ -114,57 +146,55 @@
 
 		// 打开
 		function open(side) {
-			$left_sm.fadeOut(200, function() {
-				$container.animate({
-					marginLeft: left_bg_width
-				}, 300, function() {});
-
-				$left.animate({
-					width: left_bg_width
-				}, 300, function() {
-					$left_bg.fadeIn(200, function() {});
-				});
-
-			});
-
-			leftBgActive = true;
-			leftSmActive = false;
+			if(side === 'left' && leftSmActive){
+				animate('switchMode',[$left_sm,$left_bg],left_bg_width);
+				leftBgActive = true;
+				leftSmActive = false;
+			}
 		}
 
 		// 关闭
 		function close(side) {
-			$left_bg.fadeOut(200, function() {
-				$container.animate({
-					marginLeft: left_sm_width
-				}, 300, function() {});
-
-				$left.animate({
-					width: left_sm_width
-				}, 300, function() {
-					$left_sm.fadeIn(200, function() {});
-				});
-			});
-
-			leftBgActive = false;
-			leftSmActive = true;
+			if(side === 'left' && leftBgActive){
+				animate('switchMode',[$left_bg,$left_sm],left_sm_width);
+				leftBgActive = false;
+				leftSmActive = true;
+			}
 		}
 
 		// 开关
 		function toggle(side) {
 			if (side === 'left' && $left) {
-				if (leftActive && leftSmActive) {
-					open('left');
-				} else if (leftActive && leftBgActive) {
-					close('left');
+				if (leftActive && $left_bg && $left_sm) {
+					if(leftBgActive){
+						close('left');
+					}else if(leftSmActive){
+						open('left');
+					}
+				} else {
+					if( !leftActive ){
+						open('left');
+					}else{
+						close('left');	
+					}
 				}
 			}
 			if (side === 'right' && $right) {
-				if (!rightActive) {
-					open('right');
+				if (rightActive && $right_bg && right_sm) {
+					if(leftBgActive){
+						close('right');
+					}else if(leftSmActive){
+						open('right');
+					}
 				} else {
-					close('left');
+					if( !rightActive ){
+						open('right');
+					}else{
+						close('right');	
+					}
 				}
 			}
+			
 		}
 
 		this.toggle = toggle;

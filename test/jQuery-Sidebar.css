@@ -51,3 +51,12 @@ body,
 .jqsb-left .jqsb-left-bg {
 	clear: both;
 }
+
+.jqsb-right .jqsb-right-sm{
+	float: right;
+}
+
+.jqsb-left .jqsb-right-bg {
+	clear: both;
+}
+
