@@ -54,7 +54,8 @@
                                     <li><a href="#">链接3</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">链接</a></li>
+                            <li><a href="#" class="jqsb-toggle-left">链接左</a></li>
+                            <li><a href="#" class="jqsb-toggle-right">链接右</a></li>
                             <li><a href="#" class="sb-toggle-right">设置</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -62,22 +63,43 @@
             </nav>
         </header>
         <div class="main">
-        	
+        	<button type="button" class="btn btn-primary" id="bs-toggle">开关</button>
         </div>
         <footer></footer>
     </div>
 
     <div class="jqsb-sidebar jqsb-left">
-        <div class="jqsb-left-sm"><p class="text-warning">小Width</p></div>
-        <div class="jqsb-left-bg"><p class="text-warning">这里必须是大的Width</p></div>
+        <!--<div class="jqsb-left-sm"><p class="text-warning">小Width</p></div>-->
+        <!--<div class="jqsb-left-bg"><p class="text-warning">这里必须是大的Width</p></div>-->
+        sjdfisd
+    </div>
+    
+    <div class="jqsb-sidebar jqsb-right">
+        <!--<div class="jqsb-left-sm"><p class="text-warning">小Width</p></div>-->
+        <!--<div class="jqsb-left-bg"><p class="text-warning">这里必须是大的Width</p></div>-->
+        这里是测试
     </div>
 
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="jQuery-Sidebar.js"></script>
     <script>
-        $(function(){ 
-			$.jqSidebar();
+
+        $(function(){
+			var jqsb = new $.jqSidebar({
+//                leftMode: 'sidebar-turn',
+                rightMode: 'sidebar-offset',
+                sideActive: 'right',
+                autoClose:true
+			});
+			
+			
+			$('#bs-toggle').on('click',function(event){
+				jqsb.toggle('right');
+//				jqsb.close('right');
+//				jqsb.open('left');
+			});
+
         });
     
     </script>
