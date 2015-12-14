@@ -54,7 +54,8 @@
                                     <li><a href="#">链接3</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">链接</a></li>
+                            <li><a href="#" class="jqsb-toggle-left">链接左</a></li>
+                            <li><a href="#" class="jqsb-toggle-right">链接右</a></li>
                             <li><a href="#" class="sb-toggle-right">设置</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -68,14 +69,16 @@
     </div>
 
     <div class="jqsb-sidebar jqsb-left">
-        <!--<div class="jqsb-left-sm"><p class="text-warning">小Width</p></div>
-        <div class="jqsb-left-bg"><p class="text-warning">这里必须是大的Width</p></div>-->
-        	测试水水水水水说
+        <!--<div class="jqsb-left-sm"><p class="text-warning">小Width</p></div>-->
+        <!--<div class="jqsb-left-bg"><p class="text-warning">这里必须是大的Width</p></div>-->
+        sjdfisd
     </div>
     
-    <!--<div class="jqsb-sidebar ">
-    	
-    </div>-->
+    <div class="jqsb-sidebar jqsb-right">
+        <!--<div class="jqsb-left-sm"><p class="text-warning">小Width</p></div>-->
+        <!--<div class="jqsb-left-bg"><p class="text-warning">这里必须是大的Width</p></div>-->
+        这里是测试
+    </div>
 
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -83,17 +86,17 @@
     <script>
         $(function(){
 			var jqsb = new $.jqSidebar({
-//				leftShow:'jqsb-left-sm',
-				autoClose:false
-//				isTurn:true
+//                leftMode: 'sidebar-turn',
+                rightMode: 'sidebar-offset',
+                sideActive: 'right',
+                autoClose:true
 			});
 			
 			
 			$('#bs-toggle').on('click',function(event){
-//				jqsb.toggle('left');
-//				jqsb.close();
+				jqsb.toggle('right');
+//				jqsb.close('right');
 //				jqsb.open('left');
-//				$(".jqsb-container").toggleClass('sss');
 			});
 			
 			

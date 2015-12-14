@@ -1,12 +1,13 @@
 /**
  *  jQuery-Sidebar.css
- *  Version: 0.1.0
- *  https://github.com/gavin66/jQuery-Sidebar
+ *  Version: 1.0.0
+ *  http://github.com/gavin66/jQuery-Sidebar
  */
 
 html, body {
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
 
 html, body, .jqsb-container, .jqsb-sidebar {
@@ -58,16 +59,11 @@ html, body, .jqsb-container, .jqsb-sidebar {
 .jqsb-left .jqsb-left-sm {
     float: left;
 }
-
-.jqsb-left .jqsb-left-bg {
-    clear: both;
-}
-
 .jqsb-right .jqsb-right-sm {
     float: right;
 }
 
-.jqsb-left .jqsb-right-bg {
+.jqsb-left .jqsb-left-bg,.jqsb-right .jqsb-right-bg {
     clear: both;
 }
 
