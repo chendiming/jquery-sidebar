@@ -7,9 +7,7 @@
     <meta name="renderer" content="webkit">
     <title>主页</title>
     <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">-->
-    <!--<link href="http://cdn.bootcss.com/animate.css/3.4.0/animate.min.css" rel="stylesheet">-->
-    <link href="jQuery-Sidebar.css" rel="stylesheet">
+    <link href="../dist/jQuery-Sidebar.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="jqsb-container">
@@ -63,14 +61,13 @@
             </nav>
         </header>
         <div class="main">
-        	<button type="button" class="btn btn-primary" id="bs-toggle">开关</button>
+        	<button type="button" class="btn btn-primary" id="bs-toggle">右开关</button>
+        	<button type="button" class="btn btn-primary" id="bs-toggle-left">左开关</button>
         </div>
         <footer></footer>
     </div>
 
     <div class="jqsb-sidebar jqsb-left">
-        <!--<div class="jqsb-left-sm"><p class="text-warning">小Width</p></div>-->
-        <!--<div class="jqsb-left-bg"><p class="text-warning">这里必须是大的Width</p></div>-->
         sjdfisd
     </div>
     
@@ -82,12 +79,12 @@
 
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="jQuery-Sidebar.js"></script>
+    <script src="../dist/jQuery-Sidebar.min.js"></script>
     <script>
 
         $(function(){
 			var jqsb = new $.jqSidebar({
-//                leftMode: 'sidebar-turn',
+                leftMode: 'sidebar-offset',
                 rightMode: 'sidebar-offset',
                 sideActive: 'right',
                 autoClose:true
@@ -99,6 +96,10 @@
 //				jqsb.close('right');
 //				jqsb.open('left');
 			});
+
+            $('#bs-toggle-left').on('click',function(){
+                jqsb.toggle('left');
+            });
 
         });
     
