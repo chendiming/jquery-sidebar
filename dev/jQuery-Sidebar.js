@@ -270,7 +270,7 @@
 
         // 点击jqsb-container的内容 关闭两侧侧边栏
         $container.on('click', function (event) {
-            if (setting.autoClose && ($left || $right)) {
+            if (setting.autoClose && ($left || $right) && (leftActive || rightActive)) {
                 eventHandler(event, $(this));
                 close('left');
                 close('right');
