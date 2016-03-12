@@ -1,11 +1,36 @@
 /**
  *  jQuery-Sidebar.js
  *  Version: 1.0.0
- *  http://github.com/gavin66/jQuery-Sidebar
+ *  http://github.com/gavin66/jquery-sidebar
  */
 
+
 ;
-(function ($) {
+(function(factory) {
+    "use strict";
+
+    // CommonJS/Node.js
+    if (typeof require === "function" && typeof exports === "object" && typeof module === "object")
+    {
+        module.exports = factory;
+    }
+    else if (typeof define === "function")  // AMD/CMD/Sea.js
+    {
+        if (define.amd) // for Require.js
+        {
+            /* Require.js define replace */
+        }
+        else
+        {
+            define(["jquery"], factory);  // for Sea.js
+        }
+    }
+    else
+    {
+        factory();
+    }
+
+}(function () {
     "use strict";
 
     $.jqSidebar = function (options) {
@@ -355,4 +380,4 @@
         })();
 
     };
-})(jQuery);
+}));

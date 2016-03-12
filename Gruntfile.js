@@ -14,8 +14,8 @@ module.exports = function(grunt) {
         banner: '<%= banner %>'
       },
       dev: {
-        src: 'dev/jQuery-Sidebar.js',
-        dest: 'dist/jQuery-Sidebar.js'
+        src: 'dev/jquery-sidebar.js',
+        dest: 'dist/jquery-sidebar.js'
       }
     },
 
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
           style:'expanded'
         },
         files:{
-          'dist/jQuery-Sidebar.css': 'dev/jQuery-Sidebar.scss'
+          'dist/jquery-sidebar.css': 'dev/jquery-sidebar.scss'
         }
       }
     },
@@ -95,5 +95,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['cssmin','copy:dev','uglify:dev']);
 
-  grunt.registerTask('live',['livereload','watch']);
+  //grunt.registerTask('live',['livereload','watch']);
+  grunt.registerTask('live',['watch']);
 };
