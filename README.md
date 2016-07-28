@@ -1,4 +1,4 @@
-# jquery-sidebar
+## 注意
 **这是一个基于jQuery的侧边栏插件,兼容PC和移动端**
 目前的版本是 **`1.0.0`** 相比上一个版本 **`0.1.0`** 添加了几个插件可选参数,接口和侧边栏的展现切换方式.消除了大部分bug,如有发现bug,请提给我,帮我改进.谢谢!
 
@@ -10,7 +10,7 @@
 <script src="jQuery-Sidebar.min.js"></script>
 ```
 
-##加入侧边栏功能
+## 加入侧边栏功能
 需在HTML中加入相应div与class
 
 加入左侧边栏
@@ -46,7 +46,7 @@
 
 为你的**HTML**元素添加 `class="jqsb-toggle-left"` 或 `class="jqsb-toggle-right"` 来实现点击切换侧边栏的功能
 
-##初始化插件
+## 初始化插件
 最简单方式,此方式不能初始化侧边栏的**大小交替**,需填写参数.
 ```javascript
 $(function(){
@@ -54,7 +54,7 @@ $(function(){
 });
 ```
 
-##插件参数
+## 插件参数
 | 参数名 | 类型 | 默认值 | 可选参数 | 说明 |
 | -------- | -------- | -------- | -------- | -------- |
 | leftMode | String | container-offset | container-offset , sidebar-offset , sidebar-turn | 左侧边栏的切换方式 **container-offset :** jqsb-container的div整体向右移动; **sidebar-offset:**左侧侧边栏移动;**sidebar-turn:**侧边栏中必须包含"jqsb-left-sm"和"jqsb-left-bg"两个div块,大小块交替切换|
@@ -64,7 +64,7 @@ $(function(){
 | sideActive | String | ''  | left , right | 哪边侧边栏初始化是打开状态的 |
 | autoClose | Boolean | true  | true , false | 点击container区域是否自动关闭侧边栏 |
 
-##接口
+## 接口
 调用方式
 ```javascript
 var jqsb = new $.jqSidebar();
@@ -79,3 +79,9 @@ jqsb.destroy('left');
 | open | String | 'left' , 'right' | 打开侧边栏 |
 | close | String | 'left' , 'right' | 关闭侧边栏 |
 | destroy | String | 'left' , 'right' | 销毁侧边栏 |
+
+## 贡献
+如发现问题或者有好的提议请给我提交 Issues,谢谢!
+
+## Github 项目地址
+[jquery-sidebar](https://github.com/gavin66/jquery-sidebar)
